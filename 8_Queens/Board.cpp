@@ -11,7 +11,14 @@ void Board::hello()
 
 int Board::placeQueen()
 {
-    return -1;
+    
+    return 1;
+}
+
+int Board::queensPlaced()
+{
+    placeQueen();
+    return 1;
 }
 
 #endif
