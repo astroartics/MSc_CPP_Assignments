@@ -3,5 +3,7 @@
 class Board
 {
 public:
-    void hello();    
+    int startPos;
+
+    void hello();
 };

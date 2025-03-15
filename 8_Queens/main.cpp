@@ -7,5 +7,9 @@ int main()
 {
     Queen q;
     q.hello();
+
+    Board b;
+    b.startPos = 0;
+
     return 0;
 }
