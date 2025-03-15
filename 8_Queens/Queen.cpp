@@ -9,4 +9,9 @@ void Queen::hello()
     cout << "Hello\n";
 }
 
+bool Queen::isUnderAttack()
+{
+
+}
+
 #endif

@@ -6,4 +6,6 @@ public:
     int startPos;
 
     void hello();
+
+    int placeQueen();
 };

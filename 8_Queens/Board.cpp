@@ -9,4 +9,9 @@ void Board::hello()
     cout << "Hello\n";
 }
 
+int Board::placeQueen()
+{
+    return -1;
+}
+
 #endif
