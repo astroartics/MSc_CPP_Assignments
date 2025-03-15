@@ -11,7 +11,7 @@ void Queen::hello()
 
 bool Queen::isUnderAttack()
 {
-
+    return true;
 }
 
 #endif
