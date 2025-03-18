@@ -6,6 +6,8 @@ using namespace std;
 int main()
 {
     Board b;
-    b.initializeQueen(4, 6);
+    Queen q;
+    q.placeQueen(0, 0);
+
     return 0;
 }

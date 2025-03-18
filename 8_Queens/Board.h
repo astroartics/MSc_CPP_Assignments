@@ -17,5 +17,6 @@ public:
         }
     }
 
-    void initializeQueen(int, int);
+    void blockPlaces(int, int);
+    void displayBoard();
 };

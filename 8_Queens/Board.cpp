@@ -4,23 +4,21 @@
 
 using namespace std;
 
-void Board::initializeQueen(int initialRow, int initialCol)
+void Board::blockPlaces(int currRow, int currCol)
 {
-    board[initialRow][initialCol] = 'Q';
-
     for (int i = 0; i < BOARDSIZE; i++)
     {
-        if (i != initialCol)
-            board[initialRow][i] = 'X';
+        if (i != currCol)
+            board[currRow][i] = 'X';
     }
     for (int i = 0; i < BOARDSIZE; i++)
     {
-        if (i != initialRow)
-            board[i][initialCol] = 'X';
+        if (i != currRow)
+            board[i][currCol] = 'X';
     }
 
-    int m = initialRow;
-    int n = initialCol;
+    int m = currRow;
+    int n = currCol;
     while (!(m <= 0) && !(n <= 0))
     {
         board[m - 1][n - 1] = 'X';
@@ -28,8 +26,8 @@ void Board::initializeQueen(int initialRow, int initialCol)
         n--;
     }
 
-    n = initialCol;
-    int p = initialRow;
+    n = currCol;
+    int p = currRow;
     while (!(p >= BOARDSIZE - 1) && !(n <= 0))
     {
         board[p + 1][n - 1] = 'X';
@@ -37,8 +35,8 @@ void Board::initializeQueen(int initialRow, int initialCol)
         n--;
     }
 
-    m = initialRow;
-    n = initialCol;
+    m = currRow;
+    n = currCol;
     while (!(m <= 0) && !(n >= BOARDSIZE - 1))
     {
         board[m - 1][n + 1] = 'X';
@@ -46,15 +44,18 @@ void Board::initializeQueen(int initialRow, int initialCol)
         n++;
     }
 
-    n = initialCol;
-    p = initialRow;
+    n = currCol;
+    p = currRow;
     while (!(n >= BOARDSIZE - 1) && !(p >= BOARDSIZE - 1))
     {
         board[p + 1][n + 1] = 'X';
         p++;
         n++;
     }
+}
 
+void Board::displayBoard()
+{
     for (int i = 0; i < BOARDSIZE; i++)
     {
         for (int j = 0; j < BOARDSIZE; j++)
