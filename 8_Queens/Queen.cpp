@@ -4,14 +4,4 @@
 
 using namespace std;
 
-void Queen::hello()
-{
-    cout << "Hello\n";
-}
-
-bool Queen::isUnderAttack()
-{
-    return true;
-}
-
 #endif
