@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
-    Board b(5, 5);
+    Board b;
+    b.initializeQueen(4, 6);
     return 0;
 }
