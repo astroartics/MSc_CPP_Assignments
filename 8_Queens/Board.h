@@ -4,7 +4,7 @@
 class Board
 {
 public:
-    int board[BOARDSIZE][BOARDSIZE];
+    char board[BOARDSIZE][BOARDSIZE];
 
     Board(int initialRow, int initialCol)
     {
@@ -12,28 +12,28 @@ public:
         {
             for (int j = 0; j < BOARDSIZE; j++)
             {
-                board[i][j] = 9;
+                board[i][j] = '-';
             }
         }
 
-        board[initialRow][initialCol] = 1;
+        board[initialRow][initialCol] = 'Q';
 
         for (int i = 0; i < BOARDSIZE; i++)
         {
             if (i != initialCol)
-                board[initialRow][i] = 0;
+                board[initialRow][i] = 'X';
         }
         for (int i = 0; i < BOARDSIZE; i++)
         {
             if (i != initialRow)
-                board[i][initialCol] = 0;
+                board[i][initialCol] = 'X';
         }
 
         int m = initialRow;
         int n = initialCol;
         while (!(m <= 0) && !(n <= 0))
         {
-            board[m - 1][n - 1] = 0;
+            board[m - 1][n - 1] = 'X';
             m--;
             n--;
         }
@@ -42,7 +42,7 @@ public:
         int p = initialRow;
         while (!(p >= BOARDSIZE - 1) && !(n <= 0))
         {
-            board[p + 1][n - 1] = 0;
+            board[p + 1][n - 1] = 'X';
             p++;
             n--;
         }
@@ -51,7 +51,7 @@ public:
         n = initialCol;
         while (!(m <= 0) && !(n >= BOARDSIZE - 1))
         {
-            board[m - 1][n + 1] = 0;
+            board[m - 1][n + 1] = 'X';
             m--;
             n++;
         }
@@ -60,7 +60,7 @@ public:
         p = initialRow;
         while (!(n >= BOARDSIZE - 1) && !(p >= BOARDSIZE - 1))
         {
-            board[p + 1][n + 1] = 0;
+            board[p + 1][n + 1] = 'X';
             p++;
             n++;
         }
@@ -69,7 +69,7 @@ public:
         {
             for (int j = 0; j < BOARDSIZE; j++)
             {
-                board[i][j] == 0 ? std::cout << "\033[31m" << board[i][j] << " \033[0m" : std::cout << board[i][j] << " ";
+                board[i][j] == 'X' ? std::cout << "\033[31m" << board[i][j] << " \033[0m" : std::cout << board[i][j] << " ";
             }
             std::cout << std::endl;
         }
