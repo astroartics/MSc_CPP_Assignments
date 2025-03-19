@@ -17,6 +17,5 @@ public:
         }
     }
 
-    void blockPlaces(int, int, char);
     void displayBoard();
 };

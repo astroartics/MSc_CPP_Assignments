@@ -2,7 +2,7 @@ CC=g++
 CCFLAGS=-I.
 DEPS=Board.h Queen.h
 TARGET=output
-OBJS=main.o Queen.o Board.o
+OBJS=main.o Board.o Queen.o
 
 # Rule to compile .cpp files to .o object files
 %.o: %.cpp $(DEPS)

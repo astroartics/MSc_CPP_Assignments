@@ -5,8 +5,7 @@ using namespace std;
 int main()
 {
     Queen q;
-    q.firstQueen(2, 3);
-    q.placeQueens();
+    q.placeQueens(0);
 
     return 0;
 }

@@ -6,29 +6,16 @@
 class Queen
 {
 public:
-    int queensPlaced, initialRow, initialCol;
+    int queensPlaced;
     Board b;
-    int Queens[BOARDSIZE];
 
     Queen()
     {
         queensPlaced = 0;
-        initialRow = 0;
-        initialCol = 0;
-
-        for (int i = 0; i < BOARDSIZE; i++)
-        {
-            Queens[i] = -1;
-        }
     }
 
-    void firstQueen(int, int);
-    void placeQueens();
+    bool placeQueens(int);
     bool isUnderAttack(int, int);
-    void displayQueenPositions();
-    void movePreviousQueen();
-    void revertBlockedPlaces(int, int);
-    void nextFreePos(int, int);
 };
 
 #endif
