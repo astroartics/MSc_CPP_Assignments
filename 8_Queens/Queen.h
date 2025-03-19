@@ -27,6 +27,8 @@ public:
     bool isUnderAttack(int, int);
     void displayQueenPositions();
     void movePreviousQueen();
+    void revertBlockedPlaces(int, int);
+    void nextFreePos(int, int);
 };
 
 #endif

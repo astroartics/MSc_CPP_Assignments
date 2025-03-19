@@ -2,24 +2,24 @@
 
 using namespace std;
 
-void Board::blockPlaces(int currRow, int currCol)
+void Board::blockPlaces(int currRow, int currCol, char c)
 {
     for (int i = 0; i < BOARDSIZE; i++)
     {
         if (i != currCol)
-            board[currRow][i] = 'X';
+            board[currRow][i] = c;
     }
     for (int i = 0; i < BOARDSIZE; i++)
     {
         if (i != currRow)
-            board[i][currCol] = 'X';
+            board[i][currCol] = c;
     }
 
     int m = currRow;
     int n = currCol;
     while (!(m <= 0) && !(n <= 0))
     {
-        board[m - 1][n - 1] = 'X';
+        board[m - 1][n - 1] = c;
         m--;
         n--;
     }
@@ -28,7 +28,7 @@ void Board::blockPlaces(int currRow, int currCol)
     int p = currRow;
     while (!(p >= BOARDSIZE - 1) && !(n <= 0))
     {
-        board[p + 1][n - 1] = 'X';
+        board[p + 1][n - 1] = c;
         p++;
         n--;
     }
@@ -37,7 +37,7 @@ void Board::blockPlaces(int currRow, int currCol)
     n = currCol;
     while (!(m <= 0) && !(n >= BOARDSIZE - 1))
     {
-        board[m - 1][n + 1] = 'X';
+        board[m - 1][n + 1] = c;
         m--;
         n++;
     }
@@ -46,7 +46,7 @@ void Board::blockPlaces(int currRow, int currCol)
     p = currRow;
     while (!(n >= BOARDSIZE - 1) && !(p >= BOARDSIZE - 1))
     {
-        board[p + 1][n + 1] = 'X';
+        board[p + 1][n + 1] = c;
         p++;
         n++;
     }
