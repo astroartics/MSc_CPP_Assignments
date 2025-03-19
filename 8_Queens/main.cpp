@@ -1,4 +1,6 @@
 #include "Queen.h"
+#ifndef __Queen_h_
+#define __Queen_h_
 
 using namespace std;
 
@@ -9,3 +11,5 @@ int main()
 
     return 0;
 }
+
+#endif

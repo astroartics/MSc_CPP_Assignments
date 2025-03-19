@@ -4,8 +4,8 @@ using namespace std;
 
 bool Queen::isUnderAttack(int r, int c)
 {
-    // Checking current column and row
-    for (int i = 0; i < BOARDSIZE; i++)
+    // Checking current column till current row
+    for (int i = 0; i < r; i++)
     {
         if (b.board[i][c] == 'Q')
             return true;

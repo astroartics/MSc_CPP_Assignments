@@ -1,1 +1,4 @@
 8_Queens/output
+8_Queens/Board.o
+8_Queens/main.o
+8_Queens/Queen.o
