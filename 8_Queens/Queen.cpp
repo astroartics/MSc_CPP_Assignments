@@ -1,18 +1,24 @@
-#include "Board.h"
 #include "Queen.h"
-#ifndef __Board_h_
 
 using namespace std;
 
-void Queen::placeQueen(int initialRow, int initialCol)
+void Queen::firstQueen(int iRow, int iCol)
 {
-    Board b;
+    initialRow = iRow;
+    initialCol = iCol;
+
     b.board[initialRow][initialCol] = 'Q';
     b.blockPlaces(initialRow, initialCol);
     queensPlaced = 1;
+
+    Queens[iRow] = iCol;
+}
+
+void Queen::placeQueens()
+{
     int flag = 0, i = 0, j = 0;
 
-    while (!flag || !(queensPlaced == BOARDSIZE))
+    while (queensPlaced != BOARDSIZE)
     {
         flag = 0, i = 0, j = 0;
 
@@ -20,12 +26,19 @@ void Queen::placeQueen(int initialRow, int initialCol)
         {
             for (j = 0; j < BOARDSIZE; j++)
             {
-                if (b.board[i][j] == '-')
+                if (!isUnderAttack(i, j))
                 {
-                    b.board[i][j] = 'Q';
                     flag = 1;
-                    queensPlaced++;
+                    Queens[i] = j;
                     break;
+                }
+                else
+                {
+                    flag = 0;
+                    if (j == (BOARDSIZE - 1))
+                    {
+                        break;
+                    }
                 }
             }
             if (flag)
@@ -38,10 +51,38 @@ void Queen::placeQueen(int initialRow, int initialCol)
         }
         else
         {
+            displayQueenPositions();
+            movePreviousQueen();
             b.displayBoard();
             break;
         }
     }
 }
 
-#endif
+bool Queen::isUnderAttack(int i, int j)
+{
+    if (b.board[i][j] == '-')
+    {
+        b.board[i][j] = 'Q';
+        queensPlaced++;
+        return false;
+    }
+    return true;
+}
+
+void Queen::displayQueenPositions()
+{
+    for (int i = 0; i < BOARDSIZE; i++)
+    {
+        cout << "Row : " << i << "\tCol : " << Queens[i] << endl;
+    }
+    cout << "\n\nQueens placed : " << queensPlaced << endl;
+}
+
+void Queen::movePreviousQueen()
+{
+    if (queensPlaced != BOARDSIZE)
+    {
+        cout << "Queen to be moved : " << queensPlaced << endl;
+    }
+}
